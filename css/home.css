@@ -1,0 +1,72 @@
+
+.hero-section {
+    position: relative;
+    background: var(--secondary-color);
+    height: 100vh;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+.hero-section .leaves {
+    position: absolute;
+}
+
+.hero-section .leaves.top.left {
+    top: 0;
+    width: 25rem;
+}
+
+.hero-section .leaves.bottom.left {
+    bottom: 0;
+    width: 38rem;
+}
+
+.hero-section .leaves.bottom.right {
+    bottom: -5rem;
+    right: 0;
+    width: 14rem;
+}
+
+
+.hero-section .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    height: 100%;
+}
+
+.hero-section .content {
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    justify-content: center;
+    gap: 0.5rem;
+    height: 100%;
+}
+
+.hero-section .content h1 {
+    font-size: 2rem;
+    line-height: normal;
+}
+
+.hero-section .content .highlight {
+    color: var(--accent-color);
+    font-size: 5.5rem;
+}
+
+.hero-section .content button {
+    width: fit-content;
+    margin-top: 1rem;
+}
+
+.hero-section .graphic {
+    position: relative;
+}
+
+.hero-section .graphic img {
+    position: absolute;
+    bottom: 0;
+    left: -6rem;
+    width: 50rem;
+
+}
