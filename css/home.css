@@ -1,72 +1,121 @@
+/* ========================
+   Hero Section
+   ======================== */
 
 .hero-section {
-    position: relative;
-    background: var(--secondary-color);
-    height: 100vh;
-    padding-top: 60px;
-    overflow: hidden;
+	position: relative;
+	background: var(--secondary-color);
+	height: 100vh;
+	padding-top: 60px;
+	overflow: hidden;
 }
 
 .hero-section .leaves {
-    position: absolute;
+	position: absolute;
 }
 
 .hero-section .leaves.top.left {
-    top: 0;
-    width: 25rem;
+	top: 0;
+	width: 25rem;
 }
 
 .hero-section .leaves.bottom.left {
-    bottom: 0;
-    width: 38rem;
+	bottom: 0;
+	width: 38rem;
 }
 
 .hero-section .leaves.bottom.right {
-    bottom: -5rem;
-    right: 0;
-    width: 14rem;
+	bottom: -5rem;
+	right: 0;
+	width: 14rem;
 }
 
-
 .hero-section .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+	height: 100%;
+}
+
+.hero-section .container .logo {
+	position: absolute;
+    top: 50%;
+    left: 10.5rem;
+    height: 10.5rem;
+    transform: translateY(calc(-50% - 18rem));
 }
 
 .hero-section .content {
-    display: flex;
-    flex-direction: column;
-    /* justify-items: center; */
-    justify-content: center;
-    gap: 0.5rem;
-    height: 100%;
+	display: flex;
+	flex-direction: column;
+	/* justify-items: center; */
+	justify-content: center;
+	gap: 0.5rem;
+	height: 100%;
 }
 
 .hero-section .content h1 {
-    font-size: 2rem;
-    line-height: normal;
+	font-size: 2.25rem;
+	font-family: var(--font-belle);
+	line-height: 1.2;
+	font-weight: 400;
 }
 
 .hero-section .content .highlight {
-    color: var(--accent-color);
-    font-size: 5.5rem;
+	font-family: var(--font-abril);
+	color: var(--accent-color);
+	font-size: 5.5rem;
 }
 
 .hero-section .content button {
-    width: fit-content;
-    margin-top: 1rem;
+    display: flex;
+    gap: 1.25rem;
+	width: fit-content;
+	margin-top: 1.5rem;
+	color: var(--secondary-color);
+    font-family: var(--font-abril);
+    font-size: 1rem;
+	box-shadow: 2px 5px 30px 2px rgba(134, 64, 10, 0.47);
+	-webkit-box-shadow: 2px 5px 30px 2px rgba(134, 64, 10, 0.47);
+	-moz-box-shadow: 2px 5px 30px 2px rgba(134, 64, 10, 0.47);
+}
+
+.hero-section .content button .arrow {
+	width: 1rem;
 }
 
 .hero-section .graphic {
-    position: relative;
+	position: relative;
 }
 
 .hero-section .graphic img {
-    position: absolute;
-    bottom: 0;
-    left: -6rem;
-    width: 50rem;
-
+	position: absolute;
+    z-index: 1;
+	bottom: 0;
+	left: -6rem;
+	width: 50rem;
 }
+
+.hero-section .graphic .text-background {
+	position: absolute;
+	bottom: 0;
+    left: -2rem;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-jomhuria);
+    font-size: 33.5rem;
+    line-height: 0.45;
+}
+
+.hero-section .graphic .text-background span {
+    color: var(--cashmere-color);
+    opacity: 0.6;
+}
+
+.hero-section .graphic .text-background span:nth-child(2) {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+
+

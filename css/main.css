@@ -1,85 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Abril+Fatface&family=Jomhuria&family=La+Belle+Aurore&display=swap");
+
 /* ========================
    Global CSS Variables
    ======================== */
 :root {
-  --primary-color: #673B2F;       /* Coffee brown */
-  --secondary-color: #DDCEC3;     /* Light beige */
-  --accent-color: #D04E04;        /* Terracotta accent */
-  --text-color: #2e2e2e;
+	--primary-color: #6c3409; /* Coffee brown */
+	--secondary-color: #ddcec3; /* Light beige */
+	--accent-color: #d04e04; /* Terracotta accent */
+	--text-color: #2e2e2e;
+	--tan-color: #86400a;
+	--cashmere-color: #e0b498;
 
-  --font-base: 'Abel', sans-serif;
-  --font-heading: 'Abril Fatface', serif;
+	--font-base: "Abel", sans-serif;
+	--font-abril: "Abril Fatface", serif;
+	--font-belle: "La Belle Aurore", cursive;
+	--font-jomhuria: "Jomhuria", serif;
 }
 
 /* ========================
    Basic Reset
    ======================== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: var(--font-base);
-  color: var(--text-color);
-  background-color: var(--background-color);
-  line-height: 1.6;
+	font-family: var(--font-base);
+	font-size: 1.25rem;
+	color: var(--primary-color);
+	background-color: var(--background-color);
+	line-height: 1.4;
 }
 
 /* ========================
    Links
    ======================== */
 a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: 0.3s ease;
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: 0.3s ease;
 }
 
 a:hover {
-  color: var(--accent-color);
+	color: var(--accent-color);
 }
 
 /* ========================
    Containers
    ======================== */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 1rem;
 }
 
 /* ========================
    Buttons
    ======================== */
 .btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 100vmax;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+	display: inline-block;
+	padding: 0.75rem 2rem;
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	border-radius: 100vmax;
+	cursor: pointer;
+	transition: opacity 0.3s ease;
 }
 
 .btn:hover {
-  background-color: var(--accent-color);
+	opacity: 0.9;
 }
 
 /* ========================
    Headings
    ======================== */
-h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  color: var(--primary-color);
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-heading);
+	color: var(--primary-color);
 }
 
 h1 {
-  font-size: 2.5rem;
+	font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
