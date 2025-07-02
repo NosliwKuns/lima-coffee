@@ -4,17 +4,36 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Lima Coffee</title>
-		<link rel="stylesheet" href="/css/main.css" />
-		<link rel="stylesheet" href="/css/home.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/home.css" />
+		<link rel="stylesheet" href="css/header.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 	</head>
 	<body>
-		<header></header>
+		<header>
+			<div class="container">
+				<nav class="navbar">
+					<a href="/" class="logo">
+						<img src="images/logo.svg" alt="Lima Coffee Logo" />
+					</a>
+					<ul class="nav-links">
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/menu">Menú</a></li>
+						<li><a href="/nosotro">Nosotros</a></li>
+						<li><a href="/procesos">Nuestros Procesos</a></li>
+						<li><a href="/locales">Locales</a></li>
+						<li><a href="/contact">Contacto</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
 		<main>
 			<!-- Hero Section -->
 			<section class="hero-section">
-				<img class="leaves top left" src="/images/home/leaves-top-left.png" alt="leaves" />
+				<img class="leaves top left" src="images/home/leaves-top-left.png" alt="leaves" />
 				<div class="container">
-					<img class="logo" src="/images/logo-full.svg" alt="logo" />
+					<img class="logo" src="images/logo-full.svg" alt="logo" />
 					<div class="content">
 						<h1>
 							<span>Disfruta del mejor</span>
@@ -28,11 +47,11 @@
 
 						<button class="btn">
 							<span>VER MENÚ</span>
-							<img class="arrow" src="/icons/right-arrow.svg" alt="flecha" />
+							<img class="arrow" src="icons/right-arrow.svg" alt="flecha" />
 						</button>
 					</div>
 					<div class="graphic">
-						<img src="/images/home/coffee-hero.png" alt="Taza de café" />
+						<img src="images/home/coffee-hero.png" alt="Taza de café" />
 						<div class="text-background">
 							<span>CAFÉ</span>
 							<span>CAFÉ</span>
@@ -40,12 +59,13 @@
 						</div>
 					</div>
 				</div>
-				<img class="leaves bottom left" src="/images/home/leaves-bottom-left.png" alt="leaves" />
-				<img class="leaves bottom right" src="/images/home/leaves-bottom-right.png" alt="leaves" />
+				<img class="leaves bottom left" src="images/home/leaves-bottom-left.png" alt="leaves" />
+				<img class="leaves bottom right" src="images/home/leaves-bottom-right.png" alt="leaves" />
 			</section>
 
 			sfdsf
 		</main>
 		<footer></footer>
+		<script src="js/hero.js"></script>
 	</body>
 </html>
