@@ -77,11 +77,9 @@ a:hover {
 /* ========================
    Headings
    ======================== */
-h1,
-h2,
-h3,
-h4 {
-	font-family: var(--font-heading);
+h2 {
+	font-family: var(--font-belle);
+	font-weight: 400;
 	color: var(--primary-color);
 }
 
