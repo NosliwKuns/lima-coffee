@@ -182,15 +182,26 @@ window.addEventListener("load", () => {
 			},
 			"-=0.7"
 		)
-})
 
-// Animaciones de hover para elementos interactivos
-document.querySelectorAll(".nav-links a").forEach((link) => {
-	link.addEventListener("mouseenter", () => {
-		gsap.to(link, { scale: 1.1, duration: 0.3, ease: "power2.out" })
-	})
 
-	link.addEventListener("mouseleave", () => {
-		gsap.to(link, { scale: 1, duration: 0.3, ease: "power2.out" })
-	})
+		// const containerRef = useRef < HTMLDivElement > null
+		const gridRef = document.querySelector(".grid-gallery")
+		// const titleContainerRef = useRef < HTMLHeadingElement > null
+		// const sectionRef = useRef < HTMLElement 
+		// const galeryTl = (useRef < gsap.core.Timeline) | (null > null)
+		const hasAnimated = false
+
+		console.log(gridRef)
+
+		const itemsPerRow = 2
+		const imageHeight = 256
+		const imageGap = 16
+		const rowHeight = imageHeight + imageGap
+
+		gsap.set(gridRef.children, {
+			opacity: 0,
+			scale: 0.8,
+			y: 50,
+			rotation: 5,
+		})
 })

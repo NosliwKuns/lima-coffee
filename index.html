@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="css/main.css" />
 		<link rel="stylesheet" href="css/home.css" />
 		<link rel="stylesheet" href="css/header.css" />
+		<link rel="stylesheet" href="css/footer.css" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 	</head>
@@ -63,51 +64,79 @@
 				<img class="leaves bottom right" src="images/home/leaves-bottom-right.png" alt="leaves" />
 			</section>
 
-			<section>
-				<h2>Explora nuestras delicias favoritas</h2>
+			<section class="featured-delights">
 				<div class="container">
-					<div class="card">
-						<img src="images/home/coffee-1.webp" alt="Café 1" />
-						<h3>Café Clásico</h3>
-						<p>Un café suave y aromático, perfecto para empezar el día.</p>
-					</div>
-					<div class="card">
-						<img src="images/home/coffee-2.webp" alt="Café 2" />
-						<h3>Café Espresso</h3>
-						<p>Intenso y concentrado, ideal para los amantes del café fuerte.</p>
-					</div>
-					<div class="card">
-						<img src="images/home/coffee-3.webp" alt="Café 3" />
-						<h3>Café con Leche</h3>
-						<p>Una mezcla cremosa de café y leche, perfecta para cualquier momento.</p>
+					<h2>Explora nuestras delicias favoritas</h2>
+					<div class="grid-container">
+						<div class="card">
+							<img src="images/home/cafe-helado-card.png" alt="Café 1" />
+							<h3>Café Helado</h3>
+							<p>Refrescante mezcla de café, hielo y un toque cremoso.</p>
+							<button class="btn">S/ 16.99</button>
+							<button class="add-btn">+</button>
+						</div>
+						<div class="card">
+							<img src="images/home/cafe-helado-card.png" alt="Café 2" />
+							<h3>Tiramisú</h3>
+							<p>Intenso y concentrado, ideal para los amantes del café fuerte.</p>
+							<button class="btn">S/ 14.50</button>
+							<button class="add-btn">+</button>
+						</div>
+						<div class="card">
+							<img src="images/home/cafe-helado-card.png" alt="Café 3" />
+							<h3>Sándwich Capresse</h3>
+							<p>Una mezcla cremosa de café y leche, perfecta para cualquier momento.</p>
+							<button class="btn">S/ 18.90</button>
+							<button class="add-btn">+</button>
+						</div>
 					</div>
 				</div>
 			</section>
 
-			<section>
+			<section class="philosophy-section">
 				<div class="container">
 					<h2>Nuestra Filosofía</h2>
-					<p>
-						En Lima Coffee creemos que una taza de café puede transformar tu día. Por eso, trabajamos con
-						productores locales, cuidamos cada detalle del proceso y te ofrecemos más que una bebida: una
-						experiencia con propósito, sabor y calidez.
-					</p>
 
-					<div>
-						<p>🌿 Ingredientes naturales</p>
-						<p>💚 Compromiso con lo local</p>
-						<p>☕ Amor por el buen café</p>
+					<div class="grid-content">
+						<div class="images">
+							<div class="image-wrapper">
+								<img src="images/home/philosophy-2.jpeg" alt="sdfs" />
+							</div>
+
+							<div class="image-wrapper">
+								<img src="images/home/philosophy-1.webp" alt="sdfs" />
+							</div>
+						</div>
+
+						<div class="text-content">
+							<p>
+								En Lima Coffee creemos que una taza de café puede transformar tu día. Por eso,
+								trabajamos con productores locales, cuidamos cada detalle del proceso y te ofrecemos más
+								que una bebida: una experiencia con propósito, sabor y calidez.
+							</p>
+
+							<div class="highlight">
+								<p>🌿 Ingredientes naturales</p>
+								<p>💚 Compromiso con lo local</p>
+								<p>☕ Amor por el buen café</p>
+							</div>
+							<button class="btn">
+								<span>CONÓCENOS</span>
+							</button>
+						</div>
 					</div>
-					<button class="btn">
-						<span>CONÓCENOS</span>
-						<img class="arrow" src="icons/right-arrow.svg" alt="flecha" />
-					</button>
 				</div>
+
+				<img class="graphic-leave" src="/images/home/graphic-leave.png" alt="Vector de una rama de hojas" />
 			</section>
 
-			<section>
+			<div class="container">
+				<div class="square"></div>
+			</div>
+
+			<section class="experience-preview">
 				<div class="container">
-					<div>
+					<div class="side">
 						<div>
 							<h4>Café con propósito</h4>
 							<p>Disfruta nuestros granos seleccionados de altura.</p>
@@ -118,64 +147,77 @@
 							<p>Postres artesanales que acompañan cada sorbo.</p>
 						</div>
 					</div>
-					<div>
+					<div class="graphic">
 						<span>Café</span>
 						<span>Café</span>
-						<img src="/" alt="sfsfs" />
-						<img src="/" alt="sfsfs" />
+						<img src="images/home/coffee-and-cake.png" alt="Café coon postre" />
 					</div>
 				</div>
 			</section>
 
-			<section>
+			<section class="gallery-section">
 				<div class="container">
-					<div>
-						<div>
+					<div class="side">
+						<h3 class="text">
 							<span>NUESTRO</span>
 							<span>MEJOR</span>
 							<span>CAFÉ</span>
-						</div>
-
-						<img src="/" alt="sdfskj" />
+						</h3>
+						<img src="images/home/coffe-banner.png" alt="Café" />
 					</div>
 
-					<div>
-						<img src="/" alt="dfd" /><img src="/" alt="dfd" /><img src="/" alt="dsf" /><img
-							src="/"
-							alt="sfds"
-						/>
+					<div class="grid-container">
+						<div id="grid-wrapper">
+							<div class="grid-gallery" id="grid-gallery">
+								<!-- Las imágenes serán inyectadas por JS -->
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
 		</main>
 
 		<footer>
-			<div class="container">
+			<div class="container main">
 				<div class="footer-logo">
-					<img src="images/logo.svg" alt="Lima Coffee Logo" />
+					<img src="images/logo-full.svg" alt="Lima Coffee Logo" />
 				</div>
 				<div class="footer-links">
+					<h4>Navegación</h4>
 					<ul>
 						<li><a href="/">Inicio</a></li>
 						<li><a href="/menu">Menú</a></li>
 						<li><a href="/nosotros">Nosotros</a></li>
-						<li><a href="/procesos">Nuestros Procesos</a></li>
 						<li><a href="/locales">Locales</a></li>
 						<li><a href="/contact">Contacto</a></li>
 					</ul>
 				</div>
+				<div class="footer-contact">
+					<h4>Contáctanos</h4>
+					<ul>
+						<li>contacto@limacoffee.pe</li>
+						<li>+51 999 888 777</li>
+						<li>Lima, Perú</li>
+					</ul>
+				</div>
 				<div class="footer-socials">
-					<a href="#"><img src="icons/facebook.svg" alt="Facebook" /></a>
-					<a href="#"><img src="icons/instagram.svg" alt="Instagram" /></a>
-					<a href="#"><img src="icons/twitter.svg" alt="Twitter" /></a>
+					<h4>Síguenos</h4>
+
+					<div class="icons">
+						<a href="#"><img src="icons/facebook.svg" alt="Facebook" /></a>
+						<a href="#"><img src="icons/instagram.svg" alt="Instagram" /></a>
+						<a href="#"><img src="icons/youtube.svg" alt="youtube" /></a>
+					</div>
 				</div>
 			</div>
-			<div>
+			<div class="copy">
 				<div class="container">
 					<p>&copy; 2023 Lima Coffee. Todos los derechos reservados.</p>
 				</div>
 			</div>
+			<img class="caffee-footer" src="/images/home/coffee-beans.png" alt="Granos de café" />
 		</footer>
 		<script src="js/hero.js"></script>
+		<script src="js/cascade.js"></script>
 	</body>
 </html>
