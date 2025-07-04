@@ -1,60 +1,61 @@
 const images = [
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751410963/MAKIS_v1endo.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751410962/Mesa_de_trabajo_2.1_ixpmx1.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751410963/Mesa_de_trabajo_5_btjaq2.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751410961/Mesa_de_trabajo_1.1_wkmtwy.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751407543/Mesa_de_trabajo_12_zsotmy.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751407543/Mesa_de_trabajo_14_ypa94g.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751407541/Mesa_de_trabajo_10_qi3wk6.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751407540/Mesa_de_trabajo_7_viffkr.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751413174/bowl_andino_flyer_1_fxxyvy.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751413173/wrap_flyer_3_bpghbr.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751413174/carrusel_4.2_hmqxdn.png",
-	"https://res.cloudinary.com/dsbifsorx/image/upload/v1751413175/Eiich_pecafit_uejgax.png",
+	"https://images.squarespace-cdn.com/content/v1/5ca7eb2aa56827a4cf407fd9/1592754110428-9MZPBFUVS6CT6VNNSN02/20190417224211_IMG_6180+%281%29.jpg?format=1000w",
+	"https://typika.coffee/cdn/shop/files/i_aG-k_n.jpg?v=1709803046",
+	"https://perfectdailygrind.com/wp-content/uploads/2017/10/coffee-shop7-e1506814746889.jpg",
+	"https://media.vogue.fr/photos/6698f5621275a3eee95de220/master/w_1600%2Cc_limit/451436942_1616207998939153_420376465810356220_n.jpg",
+	"https://elisetanriverdi.wordpress.com/wp-content/uploads/2018/11/unadjustednonraw_thumb_4b02.jpg",
+	"https://s3.ap-southeast-1.amazonaws.com/localiiz-prod/uploads/_1000x1000_fit_center-center_80_none/New-cafe%CC%81s-July-2021-From-Scratch-k_b_y.foodiary.jpeg?mtime=20210708170210&focal=none&tmtime=20250625131720",
+	"https://s3-media0.fl.yelpcdn.com/bphoto/bDiicCy6hn4eYUsPY0qRag/348s.jpg",
+	"https://www.timeoutdubai.com/cloud/timeoutdubai/2021/12/22/Stomping-Grounds-1024x768.jpg",
+	"https://content.jdmagicbox.com/comp/def_content_category/blue-tokai-coffee-roasters/blue-tokai-coffee-roasters-635-1vajo-250.jpg",
+	"https://www.sassyhongkong.com/wp-content/uploads/2019/09/eat-drink-wan-chao-coffee-shops-Omotesando-Koffee.jpg",
+	"https://s3-media0.fl.yelpcdn.com/bphoto/EfZWeCy17EKDtz_ms5ocyQ/348s.jpg",
+	"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSVrrHQBmMnyLk4njomdL67UnyImAdAZgFTw&s",
 ]
 
-const titles = ["Roll 360", "Dental Málaga", "Peca Fit"]
+// gsap.registerPlugin(ScrollTrigger)
 
-const grid = document.getElementById("grid-gallery")
 const gridWrapper = document.getElementById("grid-wrapper")
-let currentTitle = 0
+const gridGallery = document.getElementById("grid-gallery")
+const gallerySection = document.querySelector(".gallery-section")
+let mainTimeline = null
+let hasAnimated = false
 
-// Carga imágenes (duplicadas para el bucle)
-images.concat(images).forEach((src) => {
-	const img = document.createElement("img")
-	img.src = src
-	img.alt = ""
-	img.style.opacity = "0"
-	grid.appendChild(img)
-})
+function createImages() {
+	const allImages = [...images, ...images]
 
-// Inicial
-gsap.set(grid.children, {
-	opacity: 0,
-	scale: 0.8,
-	y: 50,
-	rotation: 5,
-})
-
-function animateGrid() {
+	allImages.forEach((src, index) => {
+		const img = document.createElement("img")
+		img.src = src
+		img.alt = `Gallery image ${index + 1}`
+		img.classList.add("grid-item")
+		gridGallery.appendChild(img)
+	})
+}
+function createCascadingAnimation() {
 	const itemsPerRow = 2
 	const imageHeight = 224
 	const imageGap = 16
 	const rowHeight = imageHeight + imageGap
 	const numRowsPerSegment = 2
-	const totalRows = Math.ceil(images.length / itemsPerRow)
+	const totalOriginalRows = Math.ceil(images.length / itemsPerRow)
 
-	const loopTl = gsap.timeline({
-		repeat: -1,
-		onRepeat: () => {
-			currentTitle = 0
-			gsap.set(gridWrapper, { y: 0 })
-		},
+	if (mainTimeline) {
+		mainTimeline.kill()
+	}
+	ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+
+	gsap.set(gridGallery.children, {
+		opacity: 0,
+		scale: 0.8,
+		y: 50,
+		rotation: 5,
 	})
 
-	// Entrada inicial
-	loopTl.to(
-		Array.from(grid.children).slice(0, 4),
+	const entryTimeline = gsap.timeline()
+
+	entryTimeline.to(
+		Array.from(gridGallery.children).slice(0, 4),
 		{
 			opacity: 1,
 			scale: 1,
@@ -67,56 +68,116 @@ function animateGrid() {
 		"start"
 	)
 
-	loopTl.to({}, { duration: 0.5 })
+	entryTimeline.to({}, { duration: 0.5 })
 
-	for (let i = 0; i < totalRows; i += numRowsPerSegment) {
-		const scrollY = rowHeight * numRowsPerSegment
-		const nextTitle = (Math.floor(i / numRowsPerSegment) + 1) % titles.length
+	const loopTimeline = gsap.timeline({
+		repeat: -1,
+		onRepeat: () => {
+			gsap.set(gridWrapper, { y: 0 })
+		},
+	})
 
-		loopTl.to(
+	for (let i = 0; i < totalOriginalRows; i += numRowsPerSegment) {
+		const scrollPixels = numRowsPerSegment * rowHeight
+		const segmentLabel = `segment${i}`
+
+		loopTimeline.addLabel(segmentLabel, "+=0.2")
+
+		loopTimeline.to(
 			gridWrapper,
 			{
-				y: `-=${scrollY}`,
+				y: `-=${scrollPixels}`,
 				duration: 1.5,
 				ease: "power2.inOut",
 			},
-			"<"
+			segmentLabel
 		)
 
-		const startIndex = (i + numRowsPerSegment) * itemsPerRow
-		const endIndex = startIndex + itemsPerRow * numRowsPerSegment
-		const newImages = Array.from(grid.children).slice(startIndex, endIndex)
+		const startImageIndex = (i + numRowsPerSegment) * itemsPerRow
+		const endImageIndex = startImageIndex + itemsPerRow * numRowsPerSegment
+		const newImages = Array.from(gridGallery.children).slice(startImageIndex, endImageIndex)
 
-		gsap.set(newImages, {
-			opacity: 0,
-			scale: 0.8,
-			y: 50,
-			rotation: 5,
-		})
+		if (newImages.length > 0) {
+			gsap.set(newImages, {
+				opacity: 0,
+				scale: 0.8,
+				y: 50,
+				rotation: 5,
+			})
 
-		loopTl.to(
-			newImages,
-			{
-				opacity: 1,
-				scale: 1,
-				y: 0,
-				rotation: 0,
-				duration: 0.6,
-				stagger: 0.1,
-				ease: "back.out(1.2)",
-			},
-			"+=0.3"
-		)
+			loopTimeline.to(
+				newImages,
+				{
+					opacity: 1,
+					scale: 1,
+					y: 0,
+					rotation: 0,
+					duration: 0.6,
+					stagger: 0.1,
+					ease: "back.out(1.2)",
+				},
+				segmentLabel + "+=1.3"
+			)
+		}
 	}
+
+	mainTimeline = gsap.timeline()
+	mainTimeline.add(entryTimeline).add(loopTimeline)
+
+	ScrollTrigger.create({
+		trigger: gallerySection,
+		start: "top 70%",
+		end: "bottom 30%",
+		markers: false,
+		onEnter: () => {
+			if (!hasAnimated) {
+				mainTimeline.play()
+				hasAnimated = true
+			} else {
+				mainTimeline.play()
+			}
+		},
+		onLeave: () => {
+			if (mainTimeline) {
+				mainTimeline.pause()
+			}
+		},
+		onEnterBack: () => {
+			if (mainTimeline) {
+				mainTimeline.play()
+			}
+		},
+		onLeaveBack: () => {
+			if (mainTimeline) {
+				mainTimeline.pause()
+			}
+			hasAnimated = false
+
+			gsap.to(gridGallery.children, {
+				opacity: 0,
+				scale: 0.8,
+				y: 50,
+				rotation: 5,
+				duration: 0.3,
+				stagger: 0.05,
+			})
+
+			gsap.set(gridWrapper, { y: 0 })
+		},
+	})
 }
 
-gsap.registerPlugin(ScrollTrigger)
+document.addEventListener("DOMContentLoaded", function () {
+	createImages()
 
-ScrollTrigger.create({
-	trigger: ".gallery-section",
-	start: "top 70%",
-	end: "bottom 30%",
-	onEnter: () => {
-		animateGrid()
-	},
+	setTimeout(() => {
+		createCascadingAnimation()
+	}, 100)
+})
+
+window.addEventListener("beforeunload", function () {
+	if (mainTimeline) {
+		mainTimeline.kill()
+	}
+	ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
 })
