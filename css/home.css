@@ -167,11 +167,15 @@ button {
 	border-radius: 100vmax 100vmax 100vmax 0;
 }
 
+.featured-delights .grid-container .card:hover img {
+	scale: 1.15;
+}
+
 .featured-delights .grid-container .card img {
 	position: absolute;
 	bottom: 9rem;
-
 	width: 12rem;
+	transition: 0.5s ease-out;
 }
 
 .featured-delights .grid-container .card h3 {
@@ -274,7 +278,7 @@ button {
 	gap: 0.5rem;
 }
 
-.philosophy-section .grid-content .text-content button {
+.philosophy-section .grid-content .text-content a {
 	font-family: var(--font-abril);
 	font-size: 1rem;
 	color: var(--secondary-color);
