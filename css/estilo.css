@@ -1,0 +1,98 @@
+/* main.css para Lima-coffee */
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
+    background-color: #f8f5f2;
+    color: #3e2c23;
+    margin: 0;
+    padding: 0;
+    padding-top: 6rem;
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #f5f1f1;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(60, 40, 20, 0.08);
+    padding: 32px 24px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #7c4a1e;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #a86b2e;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    border: 2px solid #a86b2e;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+strong {
+    color: #7c4a1e;
+}
+
+figure {
+    margin: 32px 0;
+    text-align: center;
+}
+
+figure img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #a86b2e;
+    font-weight: bold;
+}
+
+section {
+    margin-bottom: 28px;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 16px 6px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+/* Estilo para los h2 específicos que quieres que ocupen todo el ancho */
+h3.full-width {
+    background-color: #86400a; /* color de relleno */
+    color: #fff; /* texto blanco para contraste */
+    padding: 16px 0;
+    margin: 10px;
+    width: 100vw; /* ancho total de la ventana */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

@@ -1,3 +1,4 @@
+gsap.registerPlugin(ScrollTrigger)
 
 document.addEventListener("DOMContentLoaded", function () {
 	const header = document.querySelector("header")
@@ -25,9 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	window.addEventListener("scroll", requestTick, { passive: true })
-
 })
-
 
 function toggleHeaderTheme() {
 	const header = document.querySelector("header")

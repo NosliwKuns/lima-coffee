@@ -1,12 +1,516 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contacto - Lima Coffee</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Abel&family=Abril+Fatface&family=Jomhuria&family=La+Belle+Aurore&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/headerLogo.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<style>
+			/* Variables CSS */
+			:root {
+				--primary-color: #6c3409;
+				--secondary-color: #ddcec3;
+				--accent-color: #d04e04;
+				--text-color: #2e2e2e;
+				--tan-color: #86400a;
+				--cashmere-color: #e0b498;
+
+				--font-base: "Abel", sans-serif;
+				--font-abril: "Abril Fatface", serif;
+				--font-belle: "La Belle Aurore", cursive;
+				--font-jomhuria: "Jomhuria", serif;
+			}
+
+			/* Reset */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: var(--font-base);
+				font-size: 1.125rem;
+				color: var(--primary-color);
+				line-height: 1.4;
+				background: #eeebe8;
+			}
+
+			/* Buttons */
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 0.75rem 2rem;
+				background-color: var(--primary-color);
+				color: white;
+				border: none;
+				border-radius: 100vmax;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-family: var(--font-base);
+				font-size: 1rem;
+			}
+
+			.btn:hover {
+				background-color: var(--accent-color);
+				transform: translateY(-2px);
+			}
+
+			/* Headings */
+			h1 {
+				font-family: var(--font-abril);
+				font-size: 3.5rem;
+				color: var(--primary-color);
+				text-align: center;
+				margin-bottom: 1rem;
+			}
+
+			h2 {
+				font-family: var(--font-belle);
+				font-weight: 400;
+				color: var(--primary-color);
+				font-size: 2.2rem;
+				margin-bottom: 1.5rem;
+			}
+
+			h3 {
+				font-family: var(--font-base);
+				font-size: 1.5rem;
+				color: var(--primary-color);
+				margin-bottom: 1rem;
+			}
+
+			/* Main Content */
+			main {
+				margin-top: 5.9rem;
+				min-height: 100vh;
+			}
+
+			.hero-section {
+				position: relative;
+				text-align: center;
+				padding: 4rem 0;
+				background-image: url("../images/banner.jpg");
+			}
+
+			.hero-section::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background-color: rgba(0, 0, 0, 0.45);
+				z-index: 1;
+			}
+
+			.hero-section h1,
+			.hero-section p {
+				position: relative;
+				z-index: 2;
+				margin: 0;
+				color: white;
+				text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+			}
+
+			.hero-section p {
+				font-size: 1.2rem;
+				color: white;
+				max-width: 600px;
+				margin: 0 auto 2rem;
+			}
+
+			.contact-section {
+				padding: 4rem 0;
+			}
+
+			.contact-grid {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 4rem;
+				align-items: start;
+			}
+
+			/* Contact Form */
+			.contact-form {
+				background: white;
+				padding: 3rem;
+				border-radius: 20px;
+				box-shadow: 0 20px 40px rgba(108, 52, 9, 0.1);
+			}
+
+			.form-group {
+				margin-bottom: 1.5rem;
+			}
+
+			.form-group label {
+				display: block;
+				margin-bottom: 0.5rem;
+				font-weight: 600;
+				color: var(--primary-color);
+			}
+
+			.form-group input,
+			.form-group textarea,
+			.form-group select {
+				width: 100%;
+				padding: 0.75rem 1rem;
+				border: 2px solid var(--secondary-color);
+				border-radius: 10px;
+				font-family: var(--font-base);
+				font-size: 1rem;
+				transition: border-color 0.3s ease;
+			}
+
+			.form-group input:focus,
+			.form-group textarea:focus,
+			.form-group select:focus {
+				outline: none;
+				border-color: var(--accent-color);
+			}
+
+			.form-group textarea {
+				resize: vertical;
+				min-height: 120px;
+			}
+
+			.form-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 1rem;
+			}
+
+			/* Contact Info */
+			.contact-info {
+				padding: 2rem;
+			}
+
+			.info-card {
+				background: white;
+				padding: 2rem;
+				border-radius: 15px;
+				margin-bottom: 2rem;
+				box-shadow: 0 10px 30px rgba(108, 52, 9, 0.08);
+				border-left: 4px solid var(--accent-color);
+			}
+
+			.info-card h3 {
+				color: var(--primary-color);
+				margin-bottom: 1rem;
+			}
+
+			.info-card p {
+				color: var(--text-color);
+				margin-bottom: 0.5rem;
+			}
+
+			.info-card .icon {
+				display: inline-block;
+				width: 20px;
+				margin-right: 0.5rem;
+				color: var(--accent-color);
+			}
+
+			/* Map section */
+			.map-section {
+				background: white;
+				padding: 4rem 0;
+			}
+
+			.map-container {
+				background: white;
+				border-radius: 20px;
+				overflow: hidden;
+				box-shadow: 0 20px 40px rgba(108, 52, 9, 0.1);
+			}
+
+			.map-placeholder {
+				width: 100%;
+				height: 400px;
+				background: linear-gradient(135deg, var(--cashmere-color) 0%, var(--secondary-color) 100%);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--primary-color);
+				font-size: 1.2rem;
+			}
+
+			/* Coffee decoration */
+			.coffee-decoration {
+				position: absolute;
+				top: -20px;
+				right: -20px;
+				font-size: 3rem;
+				opacity: 0.1;
+				transform: rotate(15deg);
+			}
+
+			/* Responsive */
+			@media (max-width: 768px) {
+				.nav-links {
+					gap: 1rem;
+				}
+
+				.nav-links a {
+					font-size: 0.9rem;
+				}
+
+				h1 {
+					font-size: 2.5rem;
+				}
+
+				.contact-grid {
+					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+
+				.form-row {
+					grid-template-columns: 1fr;
+				}
+
+				.contact-form {
+					padding: 2rem;
+				}
+			}
+
+			/* Animations */
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.fade-in-up {
+				animation: fadeInUp 0.8s ease-out;
+			}
+
+			/* Success message */
+			.success-message {
+				background: #d4edda;
+				color: #155724;
+				padding: 1rem;
+				border-radius: 10px;
+				margin-bottom: 1rem;
+				border-left: 4px solid #28a745;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<nav class="navbar">
+					<a href="/" class="logo">
+						<img src="images/logo-full.svg" alt="Lima Coffee Logo" />
+					</a>
+					<ul class="nav-links">
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/menu.html">Menú</a></li>
+						<li><a href="/nosotros.html">Nosotros</a></li>
+						<li><a href="/procesos.html">Nuestros Procesos</a></li>
+						<li><a href="/locales.html">Locales</a></li>
+						<li><a href="/contacto.html">Contacto</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="hero-section">
+				<div class="container">
+					<h1 class="fade-in-up">Contactanos</h1>
+					<p class="fade-in-up">
+						¿Tienes alguna pregunta? ¿Quieres conocer más sobre nuestros cafés? ¡Nos encantaría escucharte!
+					</p>
+				</div>
+			</section>
+
+			<section class="contact-section">
+				<div class="container">
+					<div class="contact-grid">
+						<div class="contact-form">
+							<h2>Envíanos un mensaje</h2>
+							<div class="success-message" id="successMessage">
+								¡Gracias por contactarnos! Te responderemos pronto.
+							</div>
+							<form id="contactForm">
+								<div class="form-row">
+									<div class="form-group">
+										<label for="nombre">Nombre *</label>
+										<input type="text" id="nombre" name="nombre" required />
+									</div>
+									<div class="form-group">
+										<label for="apellido">Apellido *</label>
+										<input type="text" id="apellido" name="apellido" required />
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group">
+										<label for="email">Email *</label>
+										<input type="email" id="email" name="email" required />
+									</div>
+									<div class="form-group">
+										<label for="telefono">Teléfono</label>
+										<input type="tel" id="telefono" name="telefono" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="asunto">Asunto *</label>
+									<select id="asunto" name="asunto" required>
+										<option value="">Selecciona un asunto</option>
+										<option value="consulta-general">Consulta General</option>
+										<option value="pedido-especial">Pedido Especial</option>
+										<option value="eventos">Eventos y Catering</option>
+										<option value="franquicia">Franquicia</option>
+										<option value="trabajo">Oportunidades de Trabajo</option>
+										<option value="quejas">Quejas y Sugerencias</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="mensaje">Mensaje *</label>
+									<textarea
+										id="mensaje"
+										name="mensaje"
+										required
+										placeholder="Cuéntanos qué necesitas..."
+									></textarea>
+								</div>
+								<button type="submit" class="btn">☕ Enviar Mensaje</button>
+							</form>
+						</div>
+
+						<div class="contact-info">
+							<div class="info-card">
+								<h3>☕ Visítanos</h3>
+								<p><span class="icon">📍</span> Av. Larco 123, Miraflores</p>
+								<p><span class="icon">📍</span> Jr. de la Unión 456, Centro de Lima</p>
+								<p><span class="icon">📍</span> Av. Conquistadores 789, San Isidro</p>
+							</div>
+
+							<div class="info-card">
+								<h3>📞 Llámanos</h3>
+								<p><span class="icon">📱</span> +51 999 123 456</p>
+								<p><span class="icon">☎️</span> +51 1 234 5678</p>
+								<p><span class="icon">📧</span> info@limacoffee.com</p>
+							</div>
+
+							<div class="info-card">
+								<h3>🕐 Horarios</h3>
+								<p><strong>Lunes a Viernes:</strong> 6:00 AM - 10:00 PM</p>
+								<p><strong>Sábados:</strong> 7:00 AM - 11:00 PM</p>
+								<p><strong>Domingos:</strong> 8:00 AM - 9:00 PM</p>
+							</div>
+
+							<div class="info-card">
+								<h3>📱 Síguenos</h3>
+								<p><span class="icon">📘</span> Facebook: @LimaCoffeeOficial</p>
+								<p><span class="icon">📷</span> Instagram: @limacoffee</p>
+								<p><span class="icon">🐦</span> Twitter: @limacoffee_pe</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="map-section">
+				<div class="container">
+					<h2 style="text-align: center">Encuéntranos</h2>
+					<div class="map-container">
+						<div style="width: 100%">
+							<iframe
+								width="100%"
+								height="600"
+								frameborder="0"
+								scrolling="no"
+								marginheight="0"
+								marginwidth="0"
+								src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=-12.069306,%20-76.958032+(Lima%20Coffee)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+								><a href="https://www.mapsdirections.info/fr/calculer-la-population-sur-une-carte"
+									>Carte démographique</a
+								></iframe
+							>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="container main">
+				<div class="footer-logo">
+					<img src="images/logo-full.svg" alt="Lima Coffee Logo" />
+				</div>
+				<div class="footer-links">
+					<h4>Navegación</h4>
+					<ul>
+						<li><a href="/">Inicio</a></li>
+						<li><a href="/menu">Menú</a></li>
+						<li><a href="/nosotros">Nosotros</a></li>
+						<li><a href="/locales">Locales</a></li>
+						<li><a href="/contact">Contacto</a></li>
+					</ul>
+				</div>
+				<div class="footer-contact">
+					<h4>Contáctanos</h4>
+					<ul>
+						<li>contacto@limacoffee.pe</li>
+						<li>+51 999 888 777</li>
+						<li>Lima, Perú</li>
+					</ul>
+				</div>
+				<div class="footer-socials">
+					<h4>Síguenos</h4>
+
+					<div class="icons">
+						<a href="#"><img src="icons/facebook.svg" alt="Facebook" /></a>
+						<a href="#"><img src="icons/instagram.svg" alt="Instagram" /></a>
+						<a href="#"><img src="icons/youtube.svg" alt="youtube" /></a>
+					</div>
+				</div>
+			</div>
+			<div class="copy">
+				<div class="container">
+					<span>&copy; 2023 Lima Coffee. Todos los derechos reservados.</span>
+				</div>
+			</div>
+			<img class="caffee-footer" src="/images/home/coffee-beans.png" alt="Granos de café" />
+		</footer>
+
+		<script>
+			document.getElementById("contactForm").addEventListener("submit", function (e) {
+				e.preventDefault()
+
+				const successMessage = document.getElementById("successMessage")
+				successMessage.style.display = "block"
+
+				this.reset()
+
+				setTimeout(() => {
+					successMessage.style.display = "none"
+				}, 5000)
+			})
+
+			const form = document.getElementById("contactForm")
+			const inputs = form.querySelectorAll("input[required], select[required], textarea[required]")
+
+			inputs.forEach((input) => {
+				input.addEventListener("blur", function () {
+					if (this.value.trim() === "") {
+						this.style.borderColor = "#dc3545"
+					} else {
+						this.style.borderColor = "#28a745"
+					}
+				})
+			})
+		</script>
+	</body>
 </html>
